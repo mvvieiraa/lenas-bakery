@@ -1,18 +1,27 @@
 
 const express = require('express');
 
+const encomendaRoutes = require('./routes/encomendaRoutes');
+
 const app = express();
-const PORT = 3000;
+const PORTA = 3000;
 
 app.use(express.json());
 
+// Rotas
+app.use(encomendaRoutes);
+
+// Rota de teste
 app.get('/status', (req, res) => {
-  res.status(200).json({
-    mensagem: 'Lena’s Bakery API funcionando!',
-    status: 'online'
-  });
+    res.json({
+        mensagem: 'Servidor Lena Bakery funcionando!'
+    });
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
+app.get('/', (req, res) => {
+    res.send('Lena Bakery API está funcionando!');
+});
+
+app.listen(PORTA, () => {
+    console.log(`Servidor rodando em http://localhost:${PORTA}`);
 });
