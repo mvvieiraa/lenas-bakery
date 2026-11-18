@@ -1,5 +1,6 @@
 
 const express = require('express');
+const logger = require('./middlewares/logger');
 
 const encomendaRoutes = require('./routes/encomendaRoutes');
 
@@ -7,8 +8,9 @@ const app = express();
 const PORTA = 3000;
 
 app.use(express.json());
+app.use(logger);
 
-// Rotas
+
 app.use(encomendaRoutes);
 
 // Rota de teste

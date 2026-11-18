@@ -1,0 +1,215 @@
+{
+  "info": {
+    "_postman_id": "e57308c2-3650-4e44-97a1-38e9622fc8d7",
+    "name": "Lena's Bakery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52903324"
+  },
+  "item": [
+    {
+      "name": "New request",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"produto\": \"Bolo de chocolate\",\r\n    \"quantidade\": 2,\r\n    \"observacoes\": \"Cobertura de brigadeiro\",\r\n    \"status\": \"Pendente\",\r\n    \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/encomendas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "encomendas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"produto\": \"Bolo de chocolate\",\r\n    \"quantidade\": 2,\r\n    \"observacoes\": \"Cobertura de brigadeiro\",\r\n    \"status\": \"Pendente\",\r\n    \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/encomendas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "encomendas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getid",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"produto\": \"Bolo de chocolate\",\r\n    \"quantidade\": 2,\r\n    \"observacoes\": \"Cobertura de brigadeiro\",\r\n    \"status\": \"Pendente\",\r\n    \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/encomendas/8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "encomendas",
+            "8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "put",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"produto\": \"Bolo de chocolate\",\r\n    \"quantidade\": 2,\r\n    \"observacoes\": \"Cobertura de brigadeiro\",\r\n    \"status\": \"Pendente\",\r\n    \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/encomendas/8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "encomendas",
+            "8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"produto\": \"Bolo de chocolate\",\r\n    \"quantidade\": 2,\r\n    \"observacoes\": \"Cobertura de brigadeiro\",\r\n    \"status\": \"Pendente\",\r\n    \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/encomendas/8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "encomendas",
+            "8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Teste - Produto inválido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"produto\": \"Bo\",\r\n    \"quantidade\": 1,\r\n    \"observacoes\": \"Teste de validação\",\r\n    \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/encomendas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "encomendas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Teste - Quantidade inválida",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"produto\": \"Bolo de cenoura\",\r\n    \"quantidade\": 0,\r\n    \"observacoes\": \"Teste de validação\",\r\n    \"clienteId\": 1\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/encomendas",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "encomendas"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
