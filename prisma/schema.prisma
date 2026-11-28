@@ -9,9 +9,12 @@ datasource db {
 }
 
 model Cliente {
-  id        Int         @id @default(autoincrement())
-  nome      String
-  telefone  String
+  id         Int         @id @default(autoincrement())
+  nome       String
+  telefone   String
+  email      String      @unique
+  senha      String
+  criadoEm   DateTime    @default(now())
   encomendas Encomenda[]
 }
 
@@ -21,6 +24,7 @@ model Encomenda {
   quantidade  Int
   observacoes String?
   dataPedido  DateTime @default(now())
+  dataEntrega DateTime?
   status      String   @default("Pendente")
 
   clienteId Int

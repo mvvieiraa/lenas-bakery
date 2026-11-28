@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido confirmado | Lena's Bakery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-[#FFF8F0] flex items-center justify-center p-6">
+
+    <main class="bg-white w-full max-w-lg rounded-3xl shadow-lg p-8 text-center">
+
+        <h1 class="text-3xl font-bold text-[#8F292D] mb-3">
+            Pedido recebido!
+        </h1>
+
+        <p class="text-[#5B382F] mb-6">
+            Obrigada por escolher a Lena's Bakery.
+            Sua encomenda foi registrada!
+        </p>
+
+        <div id="detalhes" class="bg-[#FFF8F0] rounded-2xl p-5 text-left space-y-3">
+        </div>
+
+        <div class="mt-8 flex flex-col gap-3">
+
+            <a
+                href="cardapio.html"
+                class="bg-[#8F292D] text-white p-3 rounded-xl font-semibold hover:bg-[#672124]"
+            >
+                Voltar ao cardápio
+            </a>
+
+            <a
+                href="index.html"
+                class="border border-[#EBC3BC] text-[#8F292D] p-3 rounded-xl font-semibold"
+            >
+                Página inicial
+            </a>
+
+        </div>
+
+    </main>
+
+    <script>
+        const pedido = JSON.parse(sessionStorage.getItem('ultimaEncomenda'));
+
+        const detalhes = document.getElementById('detalhes');
+
+        if (!pedido) {
+            detalhes.innerHTML = `
+                <p class="text-[#5B382F]">
+                    Nenhuma encomenda encontrada.
+                </p>
+                <p>
+                    <a href="cardapio.html" class="text-[#8F292D] underline">
+                        Voltar ao cardápio
+                    </a>
+                </p>
+            `;
+        } else {
+            const data = pedido.dataEntrega
+                ? new Date(pedido.dataEntrega).toLocaleDateString('pt-BR', {
+                    timeZone: 'UTC'
+                })
+                : 'Não informada';
+
+            detalhes.innerHTML = `
+                <p><strong>Número do pedido:</strong> ${pedido.id ?? 'Registrado'}</p>
+                <p><strong>Produto:</strong> ${pedido.produto}</p>
+                <p><strong>Quantidade:</strong> ${pedido.quantidade}</p>
+                <p><strong>Entrega desejada:</strong> ${data}</p>
+                <p><strong>Observações:</strong> ${pedido.observacoes || 'Nenhuma'}</p>
+                <p><strong>Status:</strong> ${pedido.status || 'Pendente'}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>

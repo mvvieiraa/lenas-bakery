@@ -1,34 +1,36 @@
-
 const express = require('express');
 const router = express.Router();
 
 const encomendaController = require('../controllers/encomendaController');
 
-// Importar middlewares
 const validarDados = require('../middlewares/validarDados');
 const validarId = require('../middlewares/validarId');
+const autenticar = require('../middlewares/autenticar');
 
-// POST - Criar encomenda
+
+router.use(autenticar);
+
+
 router.post(
     '/encomendas',
     validarDados,
     encomendaController.criarEncomenda
 );
 
-// GET - Listar todas as encomendas
+
 router.get(
     '/encomendas',
     encomendaController.listarEncomendas
 );
 
-// GET - Buscar encomenda por ID
+
 router.get(
     '/encomendas/:id',
     validarId,
     encomendaController.buscarEncomendaPorId
 );
 
-// PUT - Atualizar encomenda
+
 router.put(
     '/encomendas/:id',
     validarId,
@@ -36,7 +38,7 @@ router.put(
     encomendaController.atualizarEncomenda
 );
 
-// DELETE - Excluir encomenda
+
 router.delete(
     '/encomendas/:id',
     validarId,

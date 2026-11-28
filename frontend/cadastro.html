@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro | Lena's Bakery</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bakery: {
+                            cream: '#FFF8F0',
+                            rose: '#F4DDD8',
+                            pink: '#EBC3BC',
+                            wine: '#8F292D',
+                            dark: '#672124',
+                            brown: '#5B382F'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Georgia', 'serif'],
+                        sans: ['Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .titulo {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#FFF8F0] text-[#5B382F]">
+
+    
+    <header class="bg-white/90 shadow-sm sticky top-0 z-50">
+
+        <div class="max-w-7xl mx-auto px-6 py-4
+                    flex items-center justify-between gap-6">
+
+            <a href="index.html"
+               class="titulo text-3xl md:text-4xl font-bold
+                      text-[#8F292D] shrink-0">
+                Lena's Bakery
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6">
+
+                <a href="index.html#inicio"
+                   class="hover:text-[#8F292D]">
+                    Início
+                </a>
+
+                <a href="cardapio.html"
+                   class="hover:text-[#8F292D]">
+                    Cardápio
+                </a>
+
+                <a href="index.html#sobre"
+                   class="hover:text-[#8F292D]">
+                    Sobre
+                </a>
+
+            </nav>
+
+            <a href="cardapio.html"
+               class="bg-[#8F292D] text-white px-5 py-3
+                      rounded-full hover:bg-[#672124]
+                      transition shrink-0">
+                Cardápio
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <main class="max-w-7xl mx-auto px-6 py-12 md:py-20">
+
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+
+            
+            <section class="py-8">
+
+                <p class="uppercase tracking-[0.3em]
+                          text-sm text-[#8F292D]">
+                    Lena's Bakery
+                </p>
+
+                <h1 class="titulo text-4xl md:text-6xl
+                           font-bold text-[#672124] mt-4
+                           leading-tight">
+                    Vamos conhecer você?
+                </h1>
+
+                <p class="mt-6 text-lg leading-relaxed">
+                    Preencha seus dados para que possamos
+                    organizar sua encomenda com carinho.
+                </p>
+
+            
+                <div class="mt-8">
+
+                    <img
+                        src="./images/cadastro-bolo.jpg"
+                        alt="Bolo da Lena's Bakery"
+                        class="w-full h-[300px] md:h-[420px]
+                               object-cover rounded-3xl"
+                    >
+
+                </div>
+
+            </section>
+
+
+            
+            <section class="bg-white rounded-[2rem]
+                            shadow-sm p-8 md:p-12">
+
+                <h2 class="titulo text-3xl font-bold
+                           text-[#672124]">
+                    Seus dados
+                </h2>
+
+                <p class="mt-3 text-[#5B382F]">
+                    Preencha os campos abaixo.
+                </p>
+
+                <form id="cadastroForm" class="mt-8 space-y-6">
+
+                
+                    <div>
+
+                        <label for="nome"
+                               class="block font-semibold mb-2">
+                            Nome completo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            name="nome"
+                            placeholder="Digite seu nome"
+                            required
+                            class="w-full border border-[#EBC3BC]
+                                   rounded-xl px-4 py-3
+                                   outline-none focus:border-[#8F292D]
+                                   focus:ring-1 focus:ring-[#8F292D]"
+                        >
+
+                    </div>
+
+
+        
+                    <div>
+
+                        <label for="telefone"
+                               class="block font-semibold mb-2">
+                            Telefone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefone"
+                            name="telefone"
+                            placeholder="(00) 00000-0000"
+                            required
+                            class="w-full border border-[#EBC3BC]
+                                   rounded-xl px-4 py-3
+                                   outline-none focus:border-[#8F292D]
+                                   focus:ring-1 focus:ring-[#8F292D]"
+                        >
+
+                    </div>
+
+
+    
+                    <div>
+
+                        <label for="email"
+                               class="block font-semibold mb-2">
+                            E-mail
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="seuemail@email.com"
+                            required
+                            class="w-full border border-[#EBC3BC]
+                                   rounded-xl px-4 py-3
+                                   outline-none focus:border-[#8F292D]
+                                   focus:ring-1 focus:ring-[#8F292D]"
+                        >
+
+                    </div>
+
+
+    
+                    <div>
+
+                        <label for="senha"
+                               class="block font-semibold mb-2">
+                            Senha
+                        </label>
+
+                        <input
+                            type="password"
+                            id="senha"
+                            name="senha"
+                            placeholder="Crie uma senha"
+                            minlength="8"
+                            required
+                            autocomplete="new-password"
+                            class="w-full border border-[#EBC3BC]
+                                   rounded-xl px-4 py-3
+                                   outline-none focus:border-[#8F292D]
+                                   focus:ring-1 focus:ring-[#8F292D]"
+                        >
+
+                        <p class="text-sm mt-2 text-gray-500">
+                            A senha deve possuir pelo menos 8 caracteres.
+                        </p>
+
+                    </div>
+
+
+                
+                    <div>
+
+                        <label for="observacoes"
+                               class="block font-semibold mb-2">
+                            Informações adicionais (opcional)
+                        </label>
+
+                        <textarea
+                            id="observacoes"
+                            name="observacoes"
+                            rows="4"
+                            placeholder="Alguma informação que queira compartilhar..."
+                            class="w-full border border-[#EBC3BC]
+                                   rounded-xl px-4 py-3
+                                   outline-none focus:border-[#8F292D]
+                                   focus:ring-1 focus:ring-[#8F292D]"
+                        ></textarea>
+
+                    </div>
+
+
+    
+                    <button
+                        id="botaoCadastro"
+                        type="submit"
+                        class="w-full bg-[#8F292D] text-white
+                               py-4 rounded-full font-semibold
+                               hover:bg-[#672124]
+                               transition duration-300">
+
+                        Criar minha conta
+
+                    </button>
+
+                </form>
+
+
+    
+                <p id="mensagem"
+                   role="status"
+                   class="mt-5 text-center">
+                </p>
+
+
+    
+                <div class="mt-8 text-center border-t border-[#F4DDD8] pt-6">
+
+                    <p>
+                        Já possui cadastro?
+                    </p>
+
+                    <a href="login.html"
+                       class="inline-block mt-2 font-semibold
+                              text-[#8F292D] hover:text-[#672124]
+                              underline">
+                        Entrar na minha conta
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    
+    <footer class="bg-[#672124] text-[#FFF8F0] py-12">
+
+        <div class="text-center px-6">
+
+            <h2 class="titulo text-3xl font-bold">
+                Lena's Bakery
+            </h2>
+
+            <p class="mt-4 text-white/80">
+                Feito com carinho, pensado para você.
+            </p>
+
+            <a href="index.html"
+               class="inline-block mt-5 underline
+                      hover:text-[#EBC3BC]">
+                Voltar para a Home
+            </a>
+
+            <p class="border-t border-white/20 mt-8 pt-6
+                      text-sm text-white/70">
+                © 2026 Lena's Bakery. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script>
+
+        const formulario = document.getElementById('cadastroForm');
+        const mensagem = document.getElementById('mensagem');
+        const botao = document.getElementById('botaoCadastro');
+
+        formulario.addEventListener('submit', async function(event) {
+
+            event.preventDefault();
+
+            mensagem.textContent = '';
+            mensagem.className = 'mt-5 text-center';
+
+            botao.disabled = true;
+            botao.textContent = 'Criando sua conta...';
+
+            const dados = {
+                nome: document.getElementById('nome').value.trim(),
+                telefone: document.getElementById('telefone').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                senha: document.getElementById('senha').value
+            };
+
+            try {
+
+                const resposta = await fetch('/cadastro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify(dados)
+                });
+
+                const resultado = await resposta.json();
+
+                if (!resposta.ok) {
+                    throw new Error(resultado.mensagem || 'Não foi possível realizar o cadastro.');
+                }
+
+                mensagem.textContent = 'Cadastro realizado com sucesso! Redirecionando...';
+                mensagem.classList.add('text-green-700');
+
+                formulario.reset();
+
+                setTimeout(() => {
+                    window.location.href = 'cardapio.html';
+                }, 1500);
+
+            } catch (erro) {
+
+                mensagem.textContent = erro.message;
+                mensagem.classList.add('text-[#8F292D]');
+
+            } finally {
+
+                botao.disabled = false;
+                botao.textContent = 'Criar minha conta';
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

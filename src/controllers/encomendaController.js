@@ -1,27 +1,30 @@
-
 const prisma = require('../prisma');
 
-// 1. CREATE - Criar encomenda
+
 async function criarEncomenda(req, res) {
     try {
         const {
             produto,
             quantidade,
             observacoes,
-            status,
-            clienteId
+            dataEntrega
         } = req.body;
+
+        if (!produto || !quantidade || Number(quantidade) < 1) {
+            return res.status(400).json({
+                mensagem: 'Informe o produto e uma quantidade válida.'
+            });
+        }
 
         const novaEncomenda = await prisma.encomenda.create({
             data: {
                 produto,
                 quantidade: Number(quantidade),
-                observacoes,
-                status,
-                clienteId: Number(clienteId)
-            },
-            include: {
-                cliente: true
+                observacoes: observacoes || null,
+                dataEntrega: dataEntrega
+                    ? new Date(dataEntrega)
+                    : null,
+                clienteId: req.clienteId
             }
         });
 
@@ -29,18 +32,19 @@ async function criarEncomenda(req, res) {
 
     } catch (erro) {
         console.error(erro);
+
         return res.status(500).json({
-            erro: "Erro ao criar encomenda."
+            mensagem: 'Erro ao criar encomenda.'
         });
     }
 }
 
-// 2. READ - Listar todas as encomendas
+
 async function listarEncomendas(req, res) {
     try {
         const encomendas = await prisma.encomenda.findMany({
-            include: {
-                cliente: true
+            where: {
+                clienteId: req.clienteId
             }
         });
 
@@ -48,29 +52,28 @@ async function listarEncomendas(req, res) {
 
     } catch (erro) {
         console.error(erro);
+
         return res.status(500).json({
-            erro: "Erro ao listar encomendas."
+            mensagem: 'Erro ao listar encomendas.'
         });
     }
 }
 
-// 3. READ - Buscar encomenda por ID
+
 async function buscarEncomendaPorId(req, res) {
     try {
-        const { id } = req.params;
+        const id = Number(req.params.id);
 
-        const encomenda = await prisma.encomenda.findUnique({
+        const encomenda = await prisma.encomenda.findFirst({
             where: {
-                id: Number(id)
-            },
-            include: {
-                cliente: true
+                id,
+                clienteId: req.clienteId
             }
         });
 
         if (!encomenda) {
             return res.status(404).json({
-                erro: "Encomenda não encontrada."
+                mensagem: 'Encomenda não encontrada.'
             });
         }
 
@@ -78,8 +81,9 @@ async function buscarEncomendaPorId(req, res) {
 
     } catch (erro) {
         console.error(erro);
+
         return res.status(500).json({
-            erro: "Erro ao buscar encomenda."
+            mensagem: 'Erro ao buscar encomenda.'
         });
     }
 }
@@ -87,29 +91,41 @@ async function buscarEncomendaPorId(req, res) {
 // 4. UPDATE - Atualizar encomenda
 async function atualizarEncomenda(req, res) {
     try {
-        const { id } = req.params;
+        const id = Number(req.params.id);
+
+        const encomendaExistente = await prisma.encomenda.findFirst({
+            where: {
+                id,
+                clienteId: req.clienteId
+            }
+        });
+
+        if (!encomendaExistente) {
+            return res.status(404).json({
+                mensagem: 'Encomenda não encontrada.'
+            });
+        }
 
         const {
             produto,
             quantidade,
             observacoes,
-            status
+            dataEntrega
         } = req.body;
 
         const encomendaAtualizada = await prisma.encomenda.update({
             where: {
-                id: Number(id)
+                id
             },
             data: {
-                produto,
+                produto: produto ?? undefined,
                 quantidade: quantidade !== undefined
                     ? Number(quantidade)
                     : undefined,
-                observacoes,
-                status
-            },
-            include: {
-                cliente: true
+                observacoes: observacoes ?? undefined,
+                dataEntrega: dataEntrega
+                    ? new Date(dataEntrega)
+                    : undefined
             }
         });
 
@@ -117,20 +133,34 @@ async function atualizarEncomenda(req, res) {
 
     } catch (erro) {
         console.error(erro);
-        return res.status(404).json({
-            erro: "Encomenda não encontrada para atualização."
+
+        return res.status(500).json({
+            mensagem: 'Erro ao atualizar encomenda.'
         });
     }
 }
 
-// 5. DELETE - Excluir encomenda
+
 async function apagarEncomenda(req, res) {
     try {
-        const { id } = req.params;
+        const id = Number(req.params.id);
+
+        const encomendaExistente = await prisma.encomenda.findFirst({
+            where: {
+                id,
+                clienteId: req.clienteId
+            }
+        });
+
+        if (!encomendaExistente) {
+            return res.status(404).json({
+                mensagem: 'Encomenda não encontrada.'
+            });
+        }
 
         await prisma.encomenda.delete({
             where: {
-                id: Number(id)
+                id
             }
         });
 
@@ -138,8 +168,9 @@ async function apagarEncomenda(req, res) {
 
     } catch (erro) {
         console.error(erro);
-        return res.status(404).json({
-            erro: "Encomenda não encontrada para exclusão."
+
+        return res.status(500).json({
+            mensagem: 'Erro ao excluir encomenda.'
         });
     }
 }

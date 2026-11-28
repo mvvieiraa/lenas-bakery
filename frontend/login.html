@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Lena's Bakery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-[#FFF8F0] p-6">
+
+    <div class="bg-white rounded-3xl shadow-lg p-8 w-full max-w-md">
+
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-[#8F292D]">
+                Lena's Bakery
+            </h1>
+
+            <p class="text-[#5B382F] mt-2">
+                Entre na sua conta
+            </p>
+        </div>
+
+        <form id="formLogin" class="space-y-5">
+
+            <div>
+                <label class="block mb-2 text-[#5B382F] font-medium">
+                    E-mail
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    required
+                    autocomplete="email"
+                    class="w-full border border-[#EBC3BC] rounded-xl p-3 outline-none focus:ring-2 focus:ring-[#8F292D]"
+                    placeholder="Digite seu e-mail"
+                >
+            </div>
+
+            <div>
+                <label class="block mb-2 text-[#5B382F] font-medium">
+                    Senha
+                </label>
+
+                <input
+                    type="password"
+                    id="senha"
+                    required
+                    autocomplete="current-password"
+                    class="w-full border border-[#EBC3BC] rounded-xl p-3 outline-none focus:ring-2 focus:ring-[#8F292D]"
+                    placeholder="Digite sua senha"
+                >
+            </div>
+
+            <p id="mensagem" class="text-center text-sm"></p>
+
+            <button
+                type="submit"
+                class="w-full bg-[#8F292D] hover:bg-[#672124] text-white font-semibold rounded-xl p-3 transition"
+            >
+                Entrar
+            </button>
+
+        </form>
+
+        <div class="text-center mt-6 space-y-3">
+
+            <p class="text-[#5B382F]">
+                Ainda não possui cadastro?
+            </p>
+
+            <a
+                href="cadastro.html"
+                class="text-[#8F292D] font-semibold hover:underline"
+            >
+                Criar minha conta
+            </a>
+
+            <div>
+                <a
+                    href="index.html"
+                    class="text-sm text-[#5B382F] hover:underline"
+                >
+                    Voltar para o início
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const form = document.getElementById('formLogin');
+        const mensagem = document.getElementById('mensagem');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const senha = document.getElementById('senha').value;
+
+            mensagem.textContent = 'Entrando...';
+            mensagem.className = 'text-center text-sm text-[#5B382F]';
+
+            try {
+                const resposta = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ email, senha })
+                });
+
+                const dados = await resposta.json();
+
+                if (!resposta.ok) {
+                    mensagem.textContent = dados.mensagem || 'Erro ao entrar.';
+                    mensagem.className = 'text-center text-sm text-red-600';
+                    return;
+                }
+
+                mensagem.textContent = 'Login realizado com sucesso!';
+                mensagem.className = 'text-center text-sm text-green-700';
+
+                setTimeout(() => {
+                    window.location.href = 'cardapio.html';
+                }, 1000);
+
+            } catch (erro) {
+                mensagem.textContent = 'Não foi possível conectar ao servidor.';
+                mensagem.className = 'text-center text-sm text-red-600';
+            }
+        });
+    </script>
+
+</body>
+</html>

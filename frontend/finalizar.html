@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Finalizar Encomenda | Lena's Bakery</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF8F0;
+        }
+
+        .titulo {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+
+<body class="text-[#5B382F]">
+
+
+    <header class="bg-white/90 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+
+            <a href="index.html" class="titulo text-3xl md:text-4xl font-bold text-[#8F292D]">
+                Lena's Bakery
+            </a>
+
+            <nav class="hidden md:flex gap-6 text-[#5B382F]">
+                <a href="index.html" class="hover:text-[#8F292D]">Início</a>
+                <a href="cardapio.html" class="hover:text-[#8F292D]">Cardápio</a>
+            </nav>
+
+            <a href="cardapio.html"
+                class="bg-[#8F292D] text-white px-5 py-3 rounded-full hover:bg-[#672124] transition">
+                Voltar
+            </a>
+
+        </div>
+    </header>
+
+
+
+    <section class="max-w-7xl mx-auto px-6 pt-12 pb-8">
+
+        <p class="uppercase tracking-[0.3em] text-sm text-[#8F292D] mb-3">
+            Lena's Bakery
+        </p>
+
+        <h1 class="titulo text-4xl md:text-5xl font-bold text-[#8F292D]">
+            Finalize sua encomenda
+        </h1>
+
+        <p class="mt-4 text-[#5B382F]/80 max-w-2xl">
+            Confira os detalhes do seu pedido e preencha as informações
+            para que possamos preparar tudo com muito carinho.
+        </p>
+
+    </section>
+
+
+    <main class="max-w-7xl mx-auto px-6 pb-16">
+
+      
+        <div id="verificando" class="bg-white rounded-3xl shadow-sm p-8 text-center">
+
+            <p class="text-lg">
+                Verificando sua conta...
+            </p>
+
+        </div>
+
+
+  
+        <div id="conteudoEncomenda" class="hidden">
+
+            <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+                <!-- RESUMO -->
+                <section class="bg-white rounded-3xl shadow-sm p-6 md:p-8">
+
+                    <h2 class="titulo text-3xl font-bold text-[#8F292D] mb-6">
+                        Resumo da encomenda
+                    </h2>
+                    <div class="mb-6">
+                        <img id="imagemBolo" src="./images/bolo-chocolate.jpg" alt="Bolo de Chocolate"
+                            class="w-full h-[300px] object-cover object-center rounded-2xl">
+                    </div>
+
+                    <div class="space-y-4">
+
+                        <!-- PRODUTO -->
+                        <div>
+
+                            <label for="produto" class="block font-medium mb-2">
+                                Produto escolhido
+                            </label>
+
+                            <select id="produto"
+                                class="w-full border border-[#EBC3BC] rounded-xl p-4 bg-[#FFF8F0] outline-none focus:ring-2 focus:ring-[#8F292D]">
+
+                                <option value="Bolo de Chocolate" data-preco="85">
+                                    Bolo de Chocolate
+                                </option>
+
+                                <option value="Bolo de Morango" data-preco="95">
+                                    Bolo de Morango
+                                </option>
+
+                                <option value="Bolo de Brigadeiro" data-preco="90">
+                                    Bolo de Brigadeiro
+                                </option>
+
+                                <option value="Bolo de Cenoura" data-preco="75">
+                                    Bolo de Cenoura
+                                </option>
+
+                                <option value="Bolo Prestígio" data-preco="90">
+                                    Bolo Prestígio
+                                </option>
+
+                                <option value="Bolo de Limão" data-preco="80">
+                                    Bolo de Limão
+                                </option>
+
+                                <option value="Bolo de Ninho" data-preco="95">
+                                    Bolo de Ninho
+                                </option>
+
+                                <option value="Bolo Personalizado" data-preco="150">
+                                    Bolo Personalizado
+                                </option>
+
+                                <option value="Bolo de Aniversário" data-preco="140">
+                                    Bolo de Aniversário
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                
+                        <div>
+
+                            <label for="quantidade" class="block font-medium mb-2">
+                                Quantidade
+                            </label>
+
+                            <input type="number" id="quantidade" min="1" value="1" required
+                                class="w-full border border-[#EBC3BC] rounded-xl p-4 bg-[#FFF8F0] outline-none focus:ring-2 focus:ring-[#8F292D]">
+
+                        </div>
+
+
+                        <div class="bg-[#F4DDD8] rounded-2xl p-5 mt-6">
+
+                            <p class="text-sm text-[#5B382F]/80">
+                                Valor unitário
+                            </p>
+
+                            <p id="valorUnitario" class="text-xl font-semibold">
+                                R$ 85,00
+                            </p>
+
+                            <div class="border-t border-[#EBC3BC] my-4"></div>
+
+                            <p class="text-sm text-[#5B382F]/80">
+                                Total da encomenda
+                            </p>
+
+                            <p id="total" class="titulo text-3xl font-bold text-[#8F292D]">
+                                R$ 85,00
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+          
+                <section class="bg-white rounded-3xl shadow-sm p-6 md:p-8">
+
+                    <h2 class="titulo text-3xl font-bold text-[#8F292D] mb-6">
+                        Seus dados
+                    </h2>
+
+
+                
+                    <div class="bg-[#F4DDD8] rounded-2xl p-5 mb-6">
+
+                        <p class="font-semibold text-[#672124]">
+                            Você está logado!
+                        </p>
+
+                        <p id="nomeCliente" class="mt-2"></p>
+
+                        <p id="telefoneCliente" class="mt-1"></p>
+
+                        <p id="emailCliente" class="mt-1"></p>
+
+                        <button type="button" id="botaoLogout"
+                            class="mt-4 underline text-[#8F292D] hover:text-[#672124]">
+
+                            Sair da conta
+
+                        </button>
+
+                    </div>
+
+
+                    <form id="formEncomenda" class="space-y-5">
+
+              
+                        <div>
+
+                            <label for="data" class="block font-medium mb-2">
+                                Data desejada para retirada
+                            </label>
+
+                            <input type="date" id="data" required
+                                class="w-full border border-[#EBC3BC] rounded-xl p-4 bg-[#FFF8F0] outline-none focus:ring-2 focus:ring-[#8F292D]">
+
+                        </div>
+
+
+                    
+                        <div>
+
+                            <label for="observacoes" class="block font-medium mb-2">
+                                Observações
+                            </label>
+
+                            <textarea id="observacoes" rows="4"
+                                placeholder="Detalhes sobre a decoração, sabor, personalização ou pedido..."
+                                class="w-full border border-[#EBC3BC] rounded-xl p-4 bg-[#FFF8F0] outline-none focus:ring-2 focus:ring-[#8F292D]"></textarea>
+
+                        </div>
+
+
+                        <button id="botaoConfirmar" type="submit"
+                            class="w-full bg-[#8F292D] text-white py-4 rounded-full font-semibold hover:bg-[#672124] transition duration-300">
+
+                            Confirmar encomenda
+
+                        </button>
+
+
+                        <!-- MENSAGEM -->
+                        <p id="mensagem" role="status" class="text-center font-medium hidden">
+
+                        </p>
+
+                    </form>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <footer class="bg-[#672124] text-[#FFF8F0] py-10">
+
+        <div class="max-w-7xl mx-auto px-6 text-center">
+
+            <h2 class="titulo text-3xl font-bold">
+                Lena's Bakery
+            </h2>
+
+            <p class="mt-3 text-[#FFF8F0]/80">
+                Feito com carinho, pensado para adoçar momentos.
+            </p>
+
+            <p class="mt-6 text-sm text-[#FFF8F0]/60">
+                © 2026 Lena's Bakery. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const verificando = document.getElementById('verificando');
+        const conteudoEncomenda = document.getElementById('conteudoEncomenda');
+
+        const produto = document.getElementById('produto');
+        const quantidade = document.getElementById('quantidade');
+
+        const imagemBolo = document.getElementById('imagemBolo');
+
+        const valorUnitario = document.getElementById('valorUnitario');
+        const total = document.getElementById('total');
+
+        const form = document.getElementById('formEncomenda');
+        const mensagem = document.getElementById('mensagem');
+        const botaoConfirmar = document.getElementById('botaoConfirmar');
+
+        const data = document.getElementById('data');
+
+
+        // DATA MÍNIMA: HOJE
+        const hoje = new Date();
+
+        const ano = hoje.getFullYear();
+        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+        const dia = String(hoje.getDate()).padStart(2, '0');
+
+        data.min = `${ano}-${mes}-${dia}`;
+
+       
+        const imagensBolos = {
+            "Bolo de Chocolate": "./images/bolo5.jpg",
+            "Bolo de Morango": "./images/bolo2.jpg",
+            "Bolo de Brigadeiro": "./images/bolo8.jpg",
+            "Bolo de Cenoura": "./images/bolo9.jpg",
+            "Bolo Prestígio": "./images/bolo1.jpg",
+            "Bolo de Limão": "./images/bolo10.jpg",
+            "Bolo de Ninho": "./images/bolo11.jpg",
+            "Bolo Personalizado": "./images/bolo3.jpg",
+            "Bolo de Aniversário": "./images/bolo12.jpg"
+        };
+
+
+     
+        async function verificarLogin() {
+
+            try {
+
+                const resposta = await fetch('/perfil', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                if (!resposta.ok) {
+                    throw new Error('Você precisa entrar na sua conta.');
+                }
+
+                const resultado = await resposta.json();
+
+                const cliente = resultado.cliente;
+
+                document.getElementById('nomeCliente').textContent =
+                    'Nome: ' + cliente.nome;
+
+                document.getElementById('telefoneCliente').textContent =
+                    'Telefone: ' + cliente.telefone;
+
+                document.getElementById('emailCliente').textContent =
+                    'E-mail: ' + cliente.email;
+
+
+                verificando.classList.add('hidden');
+                conteudoEncomenda.classList.remove('hidden');
+
+            } catch (erro) {
+
+                verificando.innerHTML = `
+                    <h2 class="titulo text-3xl text-[#8F292D] font-bold">
+                        Você precisa entrar na sua conta
+                    </h2>
+
+                    <p class="mt-4">
+                        Para realizar uma encomenda, é necessário estar cadastrado.
+                    </p>
+
+                    <a href="login.html"
+                       class="inline-block mt-6 bg-[#8F292D] text-white px-8 py-4 rounded-full hover:bg-[#672124] transition">
+
+                        Entrar na minha conta
+
+                    </a>
+
+                    <p class="mt-5">
+                        Ainda não possui cadastro?
+                    </p>
+
+                    <a href="cadastro.html"
+                       class="inline-block mt-2 underline text-[#8F292D]">
+
+                        Criar cadastro
+
+                    </a>
+                `;
+
+            }
+
+        }
+
+
+        // ATUALIZAR PREÇOS
+        function atualizarPreco() {
+
+
+
+            const opcao = produto.options[produto.selectedIndex];
+            const preco = Number(opcao.dataset.preco);
+            const qtd = Math.max(1, Number(quantidade.value) || 1);
+
+         
+            const nomeBolo = produto.value;
+
+            imagemBolo.src = imagensBolos[nomeBolo];
+            imagemBolo.alt = nomeBolo;
+
+            valorUnitario.textContent = preco.toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+            total.textContent = (preco * qtd).toLocaleString('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            });
+
+        }
+
+        produto.addEventListener('change', atualizarPreco);
+        quantidade.addEventListener('input', atualizarPreco);
+
+        atualizarPreco();
+
+
+    
+        form.addEventListener('submit', async function (event) {
+
+            event.preventDefault();
+
+            mensagem.classList.remove('hidden');
+            mensagem.className = 'text-center font-medium';
+            mensagem.textContent = '';
+
+            const quantidadeNumerica = Number(quantidade.value);
+
+            if (
+                !Number.isInteger(quantidadeNumerica) ||
+                quantidadeNumerica < 1
+            ) {
+
+                mensagem.textContent = 'Informe uma quantidade válida.';
+                mensagem.classList.add('text-[#8F292D]');
+                return;
+
+            }
+
+            if (!data.value) {
+
+                mensagem.textContent = 'Escolha uma data para retirada.';
+                mensagem.classList.add('text-[#8F292D]');
+                return;
+
+            }
+
+            if (data.value < data.min) {
+
+                mensagem.textContent = 'A data de retirada não pode ser no passado.';
+                mensagem.classList.add('text-[#8F292D]');
+                return;
+
+            }
+
+            botaoConfirmar.disabled = true;
+            botaoConfirmar.textContent = 'Enviando encomenda...';
+
+            const dados = {
+
+                produto: produto.value,
+
+                quantidade: quantidadeNumerica,
+
+                observacoes: document.getElementById('observacoes').value.trim(),
+
+                dataEntrega: data.value
+
+            };
+
+            try {
+
+                const resposta = await fetch('/encomendas', {
+
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    credentials: 'include',
+
+                    body: JSON.stringify(dados)
+
+                });
+
+                const resultado = await resposta.json();
+
+                if (!resposta.ok) {
+
+                    if (resposta.status === 401) {
+                        throw new Error('Sua sessão expirou. Entre novamente.');
+                    }
+
+                    throw new Error(resultado.mensagem || resultado.erro || 'Erro ao registrar encomenda.');
+
+                }
+
+
+  
+                sessionStorage.setItem('ultimaEncomenda', JSON.stringify({
+
+                    id: resultado.id,
+
+                    produto: resultado.produto,
+
+                    quantidade: resultado.quantidade,
+
+                    observacoes: resultado.observacoes,
+
+                    dataEntrega: resultado.dataEntrega,
+
+                    status: resultado.status
+
+                }));
+
+
+                mensagem.textContent = 'Encomenda registrada com sucesso!';
+                mensagem.classList.add('text-green-700');
+
+                botaoConfirmar.textContent = 'Encomenda registrada!';
+
+
+                setTimeout(() => {
+
+                    window.location.href = 'pedido-confirmado.html';
+
+                }, 1000);
+
+
+            } catch (erro) {
+
+                mensagem.textContent = erro.message;
+                mensagem.classList.add('text-[#8F292D]');
+
+                botaoConfirmar.disabled = false;
+                botaoConfirmar.textContent = 'Confirmar encomenda';
+
+            }
+
+        });
+
+
+     
+        document.getElementById('botaoLogout').addEventListener('click', async function () {
+
+            try {
+
+                await fetch('/logout', {
+
+                    method: 'POST',
+
+                    credentials: 'include'
+
+                });
+
+            } finally {
+
+                window.location.href = 'login.html';
+
+            }
+
+        });
+
+
+   
+        verificarLogin();
+
+    </script>
+
+</body>
+
+</html>

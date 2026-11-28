@@ -1,68 +1,107 @@
 
 function validarDados(req, res, next) {
-    console.log('VALIDAR DADOS EXECUTADO');
-}
 
-function validarDados(req, res, next) {
     const {
         produto,
         quantidade,
         observacoes,
-        clienteId
+        dataEntrega
     } = req.body;
 
-    // Validar o produto
-    if (
-        !produto ||
-        typeof produto !== 'string' ||
-        produto.trim().length < 3
-    ) {
-        return res.status(400).json({
-            erro: 'O produto é obrigatório e deve ter pelo menos 3 caracteres.'
-        });
-    }
 
-    // Validar a quantidade
-    const quantidadeNumerica = Number(quantidade);
-
-    if (
-        quantidade === undefined ||
-        quantidade === null ||
-        !Number.isInteger(quantidadeNumerica) ||
-        quantidadeNumerica <= 0
-    ) {
-        return res.status(400).json({
-            erro: 'A quantidade deve ser um número inteiro positivo.'
-        });
-    }
-
-    // Validar o cliente no cadastro
     if (req.method === 'POST') {
-        const idNumerico = Number(clienteId);
 
         if (
-            clienteId === undefined ||
-            clienteId === null ||
-            clienteId === '' ||
-            !Number.isInteger(idNumerico) ||
-            idNumerico <= 0
+            !produto ||
+            typeof produto !== 'string' ||
+            produto.trim().length < 3
         ) {
             return res.status(400).json({
-                erro: 'O clienteId é obrigatório e deve ser um número inteiro positivo.'
+                mensagem: 'O produto deve ter pelo menos 3 caracteres.'
             });
         }
 
-        req.body.clienteId = idNumerico;
+        const quantidadeNumerica = Number(quantidade);
+
+        if (
+            quantidade === undefined ||
+            quantidade === null ||
+            !Number.isInteger(quantidadeNumerica) ||
+            quantidadeNumerica <= 0
+        ) {
+            return res.status(400).json({
+                mensagem: 'A quantidade deve ser um número inteiro positivo.'
+            });
+        }
+
+        req.body.produto = produto.trim();
+        req.body.quantidade = quantidadeNumerica;
     }
 
-    // Sanitizar os dados
-    req.body.produto = produto.trim();
+   
+    if (req.method === 'PUT') {
 
+        if (produto !== undefined) {
+
+            if (
+                typeof produto !== 'string' ||
+                produto.trim().length < 3
+            ) {
+                return res.status(400).json({
+                    mensagem: 'O produto deve ter pelo menos 3 caracteres.'
+                });
+            }
+
+            req.body.produto = produto.trim();
+        }
+
+     
+        if (quantidade !== undefined) {
+
+            const quantidadeNumerica = Number(quantidade);
+
+            if (
+                !Number.isInteger(quantidadeNumerica) ||
+                quantidadeNumerica <= 0
+            ) {
+                return res.status(400).json({
+                    mensagem: 'A quantidade deve ser um número inteiro positivo.'
+                });
+            }
+
+            req.body.quantidade = quantidadeNumerica;
+        }
+
+        if (
+            produto === undefined &&
+            quantidade === undefined &&
+            observacoes === undefined &&
+            dataEntrega === undefined
+        ) {
+            return res.status(400).json({
+                mensagem: 'Informe pelo menos um dado para atualizar.'
+            });
+        }
+    }
+
+  
     if (typeof observacoes === 'string') {
         req.body.observacoes = observacoes.trim();
     }
 
-    req.body.quantidade = quantidadeNumerica;
+
+    if (dataEntrega !== undefined && dataEntrega !== null && dataEntrega !== '') {
+
+        const dataValida = new Date(dataEntrega);
+
+        if (isNaN(dataValida.getTime())) {
+            return res.status(400).json({
+                mensagem: 'A data de entrega é inválida.'
+            });
+        }
+
+        req.body.dataEntrega = dataValida.toISOString();
+    }
 
     next();
 }

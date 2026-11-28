@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lena's Bakery | Feito com carinho</title>
 
-    <!-- Tailwind CSS -->
+ 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Configuração das cores -->
+ 
     <script>
         tailwind.config = {
             theme: {
@@ -50,74 +50,85 @@
     </style>
 </head>
 
-<body class="bg-bakery-cream text-bakery-brown">
 
-    <header class="bg-white/90 shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-4">
+<header class="bg-white/90 shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4
+                flex items-center justify-between gap-6">
 
-            <a href="#" class="titulo text-3xl font-bold text-bakery-wine">
-                Lena's Bakery
-            </a>
+        <a href="#inicio"
+           class="titulo text-3xl md:text-4xl font-bold
+                  text-[#8F292D] shrink-0">
+            Lena's Bakery
+        </a>
 
-            <nav class="flex flex-wrap items-center gap-5 text-sm font-medium">
-                <a href="#inicio" class="hover:text-bakery-wine">Início</a>
-                <a href="#destaques" class="hover:text-bakery-wine">Destaques</a>
-                <a href="#sobre" class="hover:text-bakery-wine">Sobre</a>
-                <a href="#encomendas" class="hover:text-bakery-wine">Encomendas</a>
-            </nav>
+        <nav class="hidden md:flex items-center gap-6
+                    text-base text-[#5B382F]">
 
-            <a href="#https://api.whatsapp.com/send/?text=Ol%C3%A1%21+Gostaria+de+encomendar+o+Bolo+Especial.&username=SEUNUMERO&type=username&app_absent=0"
-               class="bg-bakery-wine text-white px-6 py-3 rounded-full
-                      hover:bg-bakery-dark transition">
-                FAÇA SUA ENCOMENDA
-            </a>
+            <a href="#inicio" class="hover:text-[#8F292D]">Início</a>
+            <a href="#destaques" class="hover:text-[#8F292D]">Destaques</a>
+            <a href="#sobre" class="hover:text-[#8F292D]">Sobre</a>
+            <a href="#encomendas" class="hover:text-[#8F292D]">Encomendas</a>
 
-        </div>
-    </header>
+        </nav>
+
+        <a href="#destaques"
+           class="bg-[#8F292D] text-white px-5 py-3
+                  rounded-full hover:bg-[#672124]
+                  transition text-sm md:text-base
+                  text-center shrink-0">
+
+            FAÇA SUA ENCOMENDA
+
+        </a>
+
+    </div>
+</header>
 
 
- 
- 
 
-<section id="inicio" class="max-w-7xl mx-auto px-6 py-12">
+<section id="inicio" class="max-w-7xl mx-auto px-6 py-10 md:py-14">
 
-    <div class="bg-bakery-wine rounded-[2rem] overflow-hidden
-                grid md:grid-cols-[0.9fr_1.1fr] items-center">
+    <div class="bg-[#8F292D] rounded-[2rem] overflow-hidden
+                grid md:grid-cols-2 items-center">
 
-        
-        <div class="p-10 md:p-16 text-white">
+     
+        <div class="p-8 md:p-14 lg:p-16 text-[#FFF8F0]">
 
             <p class="uppercase tracking-[0.3em] text-sm mb-5">
                 Lena's Bakery
             </p>
 
-            <h1 class="titulo text-4xl md:text-6xl font-bold leading-tight">
+            <h1 class="titulo text-4xl lg:text-6xl font-bold
+                       leading-tight">
                 Momentos doces, feitos com carinho.
             </h1>
 
-            <p class="mt-6 text-lg text-white/90">
+            <p class="mt-6 text-lg leading-relaxed text-[#FFF8F0]/90">
                 Bolos e doces personalizados para transformar
                 cada celebração em uma lembrança especial.
             </p>
 
             <a href="#destaques"
-               class="inline-block mt-8 bg-bakery-cream text-bakery-wine
-                      px-8 py-4 rounded-full font-semibold
-                      hover:scale-105 transition">
+               class="inline-block mt-8 bg-[#FFF8F0]
+                      text-[#8F292D] px-8 py-4 rounded-full
+                      font-semibold hover:bg-[#F4DDD8]
+                      transition duration-300">
+
                 Conheça nossos doces
+
             </a>
 
         </div>
 
+  
+        <div class="p-5 md:p-8">
 
- 
-        <div class="flex justify-center items-center px-6 md:px-10 py-10">
 
             <img
-                src="./images/bolo1.jpg"
-                alt="Bolo de chocolate da Lena's Bakery"
-                class="w-full h-[450px] md:h-[550px] object-cover
-                       rounded-[2rem]"
+                src="./images/header.jpg"
+                alt="Bolo da Lena's Bakery"
+                class="w-full h-[350px] md:h-[500px]
+                       object-cover rounded-2xl "
             >
 
         </div>
@@ -128,146 +139,128 @@
 
 
 
-<section id="destaques" class="max-w-7xl mx-auto px-6 py-16">
+<section id="destaques" class="max-w-7xl mx-auto px-6 py-20">
 
-    <div class="text-center mb-12">
+ 
+    <div class="text-center mb-14">
 
-        <p class="uppercase tracking-widest text-bakery-wine text-sm">
-            Feitos especialmente para você
+        <p class="uppercase tracking-[0.3em] text-sm text-[#8F292D]">
+            Feitos com carinho
         </p>
 
-        <h2 class="titulo text-4xl md:text-5xl font-bold mt-3">
-            Nossos bolos
+        <h2 class="titulo text-4xl md:text-5xl font-bold
+                   text-[#672124] mt-4">
+            Nossos destaques
         </h2>
 
-        <p class="mt-4 text-gray-600">
-            Delícias preparadas com carinho para tornar
+        <p class="text-[#5B382F] mt-5 max-w-2xl mx-auto">
+            Descubra alguns dos sabores que tornam
             cada momento ainda mais especial.
         </p>
 
     </div>
 
 
+
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      
-        <article class="bg-white rounded-3xl shadow-sm overflow-hidden
-                        hover:-translate-y-2 transition duration-300">
 
-            <img src="./images/bolo1.jpg"
-                 alt="Bolo personalizado número 1"
-                 class="w-full h-72 object-cover">
+    
+        <article class="bg-white rounded-3xl overflow-hidden
+                        shadow-sm hover:shadow-xl
+                        transition duration-300">
 
-            <div class="p-6">
+    
+            <img
+                src="./images/bolo5.jpg"
+                alt="Bolo de chocolate"
+                class="w-full h-80 object-cover"
+            >
 
-                <h3 class="titulo text-2xl font-bold text-bakery-wine">
+            <div class="p-7">
+
+                <p class="text-[#8F292D] text-sm uppercase
+                          tracking-widest">
+                    Mais pedido
+                </p>
+
+                <h3 class="titulo text-2xl font-bold
+                           text-[#672124] mt-2">
                     Bolo de Chocolate
                 </h3>
 
-                <p class="mt-3 text-gray-600">
-                    Um delicioso bolo de chocolate, perfeito para
-                    aniversários e celebrações.
+                <p class="text-[#5B382F] mt-3 leading-relaxed">
+                    Massa de chocolate macia com recheio
+                    cremoso de brigadeiro.
                 </p>
 
-                <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20encomendar%20o%20Bolo%20de%20Chocolate."
-                   target="_blank"
-                   class="inline-block mt-5 text-bakery-wine font-semibold
-                          hover:underline">
-                    Encomendar →
-                </a>
+                <div class="flex items-center justify-between
+                            mt-6 gap-3">
+
+                    <span class="text-2xl font-bold
+                                 text-[#8F292D]">
+                        R$ 85,00
+                    </span>
+
+                    <a href="#encomendas"
+                       class="bg-[#8F292D] text-white
+                              px-5 py-3 rounded-full
+                              hover:bg-[#672124] transition">
+                        Encomendar
+                    </a>
+
+                </div>
 
             </div>
 
         </article>
 
 
+ 
+        <article class="bg-white rounded-3xl overflow-hidden
+                        shadow-sm hover:shadow-xl
+                        transition duration-300">
 
-        <article class="bg-white rounded-3xl shadow-sm overflow-hidden
-                        hover:-translate-y-2 transition duration-300">
+      
+            <img
+                src="./images/bolo2.jpg"
+                alt="Bolo de morango"
+                class="w-full h-80 object-cover"
+            >
 
-            <img src="./images/bolo2.jpg"
-                 alt="Bolo personalizado número 2"
-                 class="w-full h-72 object-cover">
+            <div class="p-7">
 
-            <div class="p-6">
+                <p class="text-[#8F292D] text-sm uppercase
+                          tracking-widest">
+                    Sabor delicado
+                </p>
 
-                <h3 class="titulo text-2xl font-bold text-bakery-wine">
+                <h3 class="titulo text-2xl font-bold
+                           text-[#672124] mt-2">
                     Bolo de Morango
                 </h3>
 
-                <p class="mt-3 text-gray-600">
-                    Uma combinação delicada de sabores para
-                    quem ama morango.
+                <p class="text-[#5B382F] mt-3 leading-relaxed">
+                    Uma combinação de massa leve,
+                    creme e morangos frescos.
                 </p>
 
-                <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20encomendar%20o%20Bolo%20de%20Morango."
-                   target="_blank"
-                   class="inline-block mt-5 text-bakery-wine font-semibold
-                          hover:underline">
-                    Encomendar →
-                </a>
+                <div class="flex items-center justify-between
+                            mt-6 gap-3">
 
-            </div>
+                    <span class="text-2xl font-bold
+                                 text-[#8F292D]">
+                        R$ 95,00
+                    </span>
 
-        </article>
+                    <a href="#encomendas"
+                       class="bg-[#8F292D] text-white
+                              px-5 py-3 rounded-full
+                              hover:bg-[#672124] transition">
+                        Encomendar
+                    </a>
 
-
-  
-        <article class="bg-white rounded-3xl shadow-sm overflow-hidden
-                        hover:-translate-y-2 transition duration-300">
-
-            <img src="./images/bolo3.jpg"
-                 alt="Bolo personalizado número 3"
-                 class="w-full h-72 object-cover">
-
-            <div class="p-6">
-
-                <h3 class="titulo text-2xl font-bold text-bakery-wine">
-                    Bolo de Festa
-                </h3>
-
-                <p class="mt-3 text-gray-600">
-                    Bolo decorado para deixar suas comemorações
-                    ainda mais bonitas.
-                </p>
-
-                <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20encomendar%20o%20Bolo%20de%20Festa."
-                   target="_blank"
-                   class="inline-block mt-5 text-bakery-wine font-semibold
-                          hover:underline">
-                    Encomendar →
-                </a>
-
-            </div>
-
-        </article>
-
-
-        
-        <article class="bg-white rounded-3xl shadow-sm overflow-hidden
-                        hover:-translate-y-2 transition duration-300">
-
-            <img src="./images/bolo5.jpg"
-                 alt="Bolo personalizado número 4"
-                 class="w-full h-72 object-cover">
-
-            <div class="p-6">
-
-                <h3 class="titulo text-2xl font-bold text-bakery-wine">
-                    Bolo de Brigadeiro
-                </h3>
-
-                <p class="mt-3 text-gray-600">
-                    Um clássico recheado de brigadeiro,
-                    ideal para qualquer ocasião.
-                </p>
-
-                <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20encomendar%20o%20Bolo%20de%20Brigadeiro."
-                   target="_blank"
-                   class="inline-block mt-5 text-bakery-wine font-semibold
-                          hover:underline">
-                    Encomendar →
-                </a>
+                </div>
 
             </div>
 
@@ -275,61 +268,49 @@
 
 
       
-        <article class="bg-white rounded-3xl shadow-sm overflow-hidden
-                        hover:-translate-y-2 transition duration-300">
+        <article class="bg-white rounded-3xl overflow-hidden
+                        shadow-sm hover:shadow-xl
+                        transition duration-300">
 
-            <img src="./images/bolo4.jpg"
-                 alt="Bolo personalizado número 5"
-                 class="w-full h-72 object-cover">
+            <img
+                src="./images/bolo8.jpg"
+                alt="Bolo de brigadeiro"
+                class="w-full h-80 object-cover"
+            >
 
-            <div class="p-6">
+            <div class="p-7">
 
-                <h3 class="titulo text-2xl font-bold text-bakery-wine">
-                    Bolo Personalizado
-                </h3>
-
-                <p class="mt-3 text-gray-600">
-                    Uma decoração pensada especialmente
-                    para o seu momento.
+                <p class="text-[#8F292D] text-sm uppercase
+                          tracking-widest">
+                    Clássico
                 </p>
 
-                <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20encomendar%20um%20Bolo%20Personalizado."
-                   target="_blank"
-                   class="inline-block mt-5 text-bakery-wine font-semibold
-                          hover:underline">
-                    Encomendar →
-                </a>
-
-            </div>
-
-        </article>
-
-
-
-        <article class="bg-white rounded-3xl shadow-sm overflow-hidden
-                        hover:-translate-y-2 transition duration-300">
-
-            <img src="./images/bolo6.jpg"
-                 alt="Bolo personalizado número 6"
-                 class="w-full h-72 object-cover">
-
-            <div class="p-6">
-
-                <h3 class="titulo text-2xl font-bold text-bakery-wine">
-                    Bolo Especial
+                <h3 class="titulo text-2xl font-bold
+                           text-[#672124] mt-2">
+                    Bolo de Brigadeiro
                 </h3>
 
-                <p class="mt-3 text-gray-600">
-                    Crie o bolo ideal para aniversários,
-                    reuniões e momentos especiais.
+                <p class="text-[#5B382F] mt-3 leading-relaxed">
+                    Massa fofinha com brigadeiro cremoso
+                    e cobertura de chocolate.
                 </p>
 
-                <a href="https://wa.me/SEUNUMERO?text=Olá!%20Gostaria%20de%20encomendar%20o%20Bolo%20Especial."
-                   target="_blank"
-                   class="inline-block mt-5 text-bakery-wine font-semibold
-                          hover:underline">
-                    Encomendar →
-                </a>
+                <div class="flex items-center justify-between
+                            mt-6 gap-3">
+
+                    <span class="text-2xl font-bold
+                                 text-[#8F292D]">
+                        R$ 90,00
+                    </span>
+
+                    <a href="#encomendas"
+                       class="bg-[#8F292D] text-white
+                              px-5 py-3 rounded-full
+                              hover:bg-[#672124] transition">
+                        Encomendar
+                    </a>
+
+                </div>
 
             </div>
 
@@ -337,11 +318,24 @@
 
     </div>
 
+
+    
+    <div class="text-center mt-12">
+
+        <a href="cardapio.html"
+           class="inline-block border-2 border-[#8F292D]
+                  text-[#8F292D] px-10 py-4 rounded-full
+                  font-semibold hover:bg-[#8F292D]
+                  hover:text-white transition">
+
+            Ver todos os nossos bolos
+
+        </a>
+
+    </div>
+
 </section>
 
-
-
-  
 <section id="sobre" class="bg-bakery-rose py-20">
 
     <div class="max-w-7xl mx-auto px-6
@@ -390,7 +384,7 @@
 
 </section>
 
-    <!-- ENCOMENDAS -->
+
     <section id="encomendas" class="max-w-7xl mx-auto px-6 py-20">
 
         <div class="bg-white rounded-[2rem] shadow-sm p-8 md:p-16
@@ -414,7 +408,7 @@
                class="inline-block mt-8 bg-bakery-wine text-white
                       px-8 py-4 rounded-full hover:bg-bakery-dark
                       transition">
-                Solicitar encomenda
+                Entrar em contato
             </a>
 
         </div>
@@ -453,7 +447,4 @@
 
     </footer>
 
-    <script src="./js/script.js"></script>
-
-</body>
 </html>
